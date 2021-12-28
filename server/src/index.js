@@ -1,4 +1,8 @@
-const express = require('express');
+import express from 'express';
+import React from 'react';
+import Home from './containers/Home';
+import { renderToString } from 'react-dom/server';
+
 const app = express();
 
 app.get('/', (req, res) => {
@@ -9,7 +13,7 @@ app.get('/', (req, res) => {
             </head> 
             <body>
                 <h1>title</h1> 
-                <p>name</p>
+                ${renderToString(<Home />)}
             </body>
         </html> 
     `)
