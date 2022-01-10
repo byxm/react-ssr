@@ -1,0 +1,3 @@
+const CHANGE_HOME_LIST = "CHANGE_HOME_LIST";
+
+export { CHANGE_HOME_LIST };

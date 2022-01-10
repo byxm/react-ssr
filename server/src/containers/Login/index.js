@@ -10,4 +10,8 @@ const Login = () => {
   );
 };
 
+Login.loadData = () => {
+  
+}
+
 export default Login;
