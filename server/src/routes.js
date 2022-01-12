@@ -6,6 +6,7 @@ export default [
     path: "/",
     component: Home,
     key: "home",
+    exact: true,
     loadData: Home.loadData,
     // routes: [
     //   {
@@ -19,5 +20,6 @@ export default [
     path: "/login",
     component: Login,
     key: "login",
+    loadData: Login.loadData
   },
 ];
