@@ -16,7 +16,7 @@ const render = (req, res) => {
       promiseLoadData.push(rt.route.loadData(store));
     }
   });
-  Promise.all(promiseLoadData).then(() => {
+  // Promise.all(promiseLoadData).then(() => {
     const content = renderToString(
       <Provider store={store}>
         <StaticRouter location={req.path} context={{}}>
@@ -48,7 +48,7 @@ const render = (req, res) => {
           </html> 
       `;
     res.send(restString);
-  });
+  // });
 };
 
 export default render;
