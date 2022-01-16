@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Header from "../../components/Header";
 import { getHomeList, createDispatch } from "./store/action";
+import style from './index.css'
 
 class Home extends Component {
   componentDidMount() {
@@ -22,8 +22,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        <Header />
+      <div className={style['home-page']}>
         <div>{this.getHomeList()}</div>
         <button onClick={this.props.addEle}>添加</button>
       </div>
@@ -33,7 +32,7 @@ class Home extends Component {
 
 Home.loadData = (store) => {
   // 在路由加载的时候执行，获取一些初始化的数据
-  return store.dispatch(getHomeList());
+  return store.dispatch(getHomeList(true));
 };
 
 const mapStateToProps = (state) => ({

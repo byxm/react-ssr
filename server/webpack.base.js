@@ -20,22 +20,6 @@ module.exports = {
           ],
         },
       },
-      // {
-      //   test: /\.js$/,
-      //   use: [
-      //     {
-      //       loader: "babel-loader",
-      //       options: {
-      //         presets: ["@babel/preset-env"],
-      //         plugins: [
-      //           // here
-      //           "@babel/plugin-transform-async-to-generator",
-      //           "@babel/plugin-proposal-class-properties",
-      //         ],
-      //       },
-      //     },
-      //   ],
-      // },
     ],
   },
 };

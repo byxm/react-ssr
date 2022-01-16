@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDom from "react-dom";
 import { BrowserRouter, Route } from "react-router-dom";
+import { renderRoutes } from "react-router-config";
 import Routes from "../routes";
 import { Provider } from "react-redux";
 import { createClientStore } from "../store";
@@ -8,15 +9,7 @@ import { createClientStore } from "../store";
 const App = () => {
   return (
     <Provider store={createClientStore()}>
-      <BrowserRouter>
-        {
-          <div>
-            {Routes.map((el) => (
-              <Route {...el} />
-            ))}
-          </div>
-        }
-      </BrowserRouter>
+      <BrowserRouter>{<div>{renderRoutes(Routes)}</div>}</BrowserRouter>
     </Provider>
   );
 };

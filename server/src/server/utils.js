@@ -1,7 +1,7 @@
 import React from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter, Route } from "react-router-dom";
-import { matchRoutes } from "react-router-config";
+import { matchRoutes, renderRoutes } from "react-router-config";
 import { Provider } from "react-redux";
 import Routes from "../routes";
 import { getStore } from "../store";
@@ -16,15 +16,13 @@ const render = (req, res) => {
       promiseLoadData.push(rt.route.loadData(store));
     }
   });
-  // Promise.all(promiseLoadData).then(() => {
+  Promise.all(promiseLoadData).then(() => {
     const content = renderToString(
       <Provider store={store}>
         <StaticRouter location={req.path} context={{}}>
           {
             <div>
-              {Routes.map((el) => (
-                <Route {...el} />
-              ))}
+              { renderRoutes(Routes) }
             </div>
           }
         </StaticRouter>
@@ -48,7 +46,7 @@ const render = (req, res) => {
           </html> 
       `;
     res.send(restString);
-  // });
+  });
 };
 
 export default render;
